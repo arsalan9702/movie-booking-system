@@ -15,7 +15,7 @@ export function isMySQL(): boolean {
 if (!USE_IN_MEMORY) {
 	if (USE_MYSQL) {
 		mySqlPool = mysql.createPool({
-			host: process.env.MYSQL_HOST || 'localhost',
+			host: process.env.MYSQL_HOST || '127.0.0.1',
 			port: parseInt(process.env.MYSQL_PORT || '3306'),
 			database: process.env.MYSQL_DB || 'movie_booking',
 			user: process.env.MYSQL_USER || 'root',
@@ -26,7 +26,7 @@ if (!USE_IN_MEMORY) {
 		});
 	} else {
 		const dbConfig = {
-			host: process.env.DB_HOST || 'localhost',
+			host: process.env.DB_HOST || '127.0.0.1',
 			port: parseInt(process.env.DB_PORT || '5432'),
 			database: process.env.DB_NAME || 'movie_booking',
 			user: process.env.DB_USER || 'postgres',
